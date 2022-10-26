@@ -10,21 +10,21 @@ module.exports = class Product {
   }
 
   save() {
-    //
+    return db.execute(
+      "insert into products (title, price, imageUrl, description) values (?, ?, ?, ?)",
+      [this.title, this.price, this.imageUrl, this.description]
+    );
   }
 
   static deleteById(id) {
     //
   }
 
-  static fetchAll(cb) {
+  static fetchAll() {
     return db.execute("select * from products");
   }
 
-  static findById(id, cb) {
-    getProductsFromFile((products) => {
-      const product = products.find((p) => p.id === id);
-      cb(product);
-    });
+  static findById(id) {
+    return db.execute("select * from products where id = ?", [id]);
   }
 };
