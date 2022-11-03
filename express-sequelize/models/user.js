@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const dbSequelize = require("../util/database");
 
-const Cart = dbSequelize.define("cart", {
+const User = dbSequelize.define("user", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -13,4 +13,4 @@ const Cart = dbSequelize.define("cart", {
   email: Sequelize.STRING,
 });
 
-module.exports = Cart;
+module.exports = User;
